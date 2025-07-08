@@ -1,4 +1,5 @@
-import type { IProduct } from "../components/interfaces";
+import type { IProduct, IFormInput } from "../components/interfaces";
+
 
 export const ProductList: IProduct[] = [
   {
@@ -75,5 +76,31 @@ export const ProductList: IProduct[] = [
       imgUrl:
         "https://img.freepik.com/free-vector/vintage-flat-eternal-light-church-t-shirt_742173-11977.jpg?t=st=1751482595~exp=1751486195~hmac=e3fc9e05e70d7e6128688e0c3462d28b3c74311a1ec4136db9f3828743976e73&w=1380",
     },
+  },
+];
+export const formInputList: IFormInput[] = [
+  {
+    id: "title",
+    name: "title",
+    label: "product title",
+    type: "text",
+  },
+  {
+    id: "description",
+    name: "description",
+    label: "product description",
+    type: "text",
+  },
+  {
+    id: "image",
+    name: "imageUrl",
+    label: "product image",
+    type: "text",
+  },
+  {
+    id: "price",
+    name: "priceUrl",
+    label: "product price",
+    type: "text",
   },
 ];

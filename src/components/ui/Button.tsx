@@ -10,7 +10,7 @@ const Button = ({ children, className, width, ...rest }: IProps) => {
   return (
     <button
       className={`${className} ${width} p-2 flex-1 rounded-md text-white
-        p-2 flex-1 rounded-md text-white cursor-pointer`}
+        p-2 flex-1 rounded-lg text-white cursor-pointer`}
       {...rest}
     >
       {children}
