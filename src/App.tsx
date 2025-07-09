@@ -51,7 +51,7 @@ const App = () => {
         type="text"
         name={input.name}
         id={input.id}
-        value={""}
+        value={product[input.name]}
         onChange={onChangeProduct}
       />
     </div>
