@@ -4,12 +4,14 @@ import MyModal from "./components/ui/Model";
 import Input from "./components/ui/input";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
+import type { FormEvent } from "react";
 import Button from "./components/ui/Button";
 import type { IProduct } from "./components/interfaces";
+import { productValidation } from "./validation/index";
+import ErrorMessage from "./components/ErrorMessage";
 
 const App = () => {
-  /*--------------------------state-------------------*/
-  const [product, setProduct] = useState<IProduct>({
+  const defaultproductObj = {
     title: "",
     description: "",
     imgUrl: "",
@@ -19,9 +21,17 @@ const App = () => {
       name: "",
       imgUrl: "",
     },
-  });
+  };
+  /*--------------------------state-------------------*/
+  const [product, setProduct] = useState<IProduct>(defaultproductObj);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [errors, setErrors] = useState({
+    title: "",
+    description: "",
+    imgUrl: "",
+    price: "",
+  });
 
   /*--------------------------handler-------------------*/
 
@@ -38,14 +48,41 @@ const App = () => {
       ...prevProduct,
       [name]: value,
     }));
+    setErrors({
+      ...errors,
+      [name]: "",
+    });
   };
+  
 
+  function submitHandelar(event: FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+    const { title, description, price, imgUrl } = product;
+    const error = productValidation({ title, description, price, imgUrl });
+
+    // check if any property has a value of "" && check if all properities have avalue of ""
+    const hasErrorMg =
+      Object.values(error).some((value) => value === "") &&
+      Object.values(error).every((value) => value === "");
+    console.log(hasErrorMg);
+    console.log(error);
+    if (!hasErrorMg) {
+      setErrors(error);
+      return;
+    }
+    console.log("has sent");
+  }
+  const oncancel = () => {
+    console.log("cancel");
+    setProduct(defaultproductObj);
+    close();
+  };
   /*--------------------------renders-------------------*/
   const rendersProductList = ProductList.map((product) => (
     <ProductCard key={product.id} product={product} />
   ));
   const renderFormInputList = formInputList.map((input) => (
-    <div className="flex flex-col">
+    <div className="flex flex-col " key={input.id}>
       <label htmlFor={input.id}>{input.label}</label>
       <Input
         type="text"
@@ -54,8 +91,10 @@ const App = () => {
         value={product[input.name]}
         onChange={onChangeProduct}
       />
+      <ErrorMessage msg={ errors[input.name]} />
     </div>
   ));
+
   return (
     <main className="container mx-auto">
       <Button
@@ -68,11 +107,16 @@ const App = () => {
         {rendersProductList}
       </div>
       <MyModal isOpen={isOpen} close={close} title="EDIT PRODUCT">
-        <form className="space-y-3">
+        <form className="space-y-3" onSubmit={submitHandelar}>
           {renderFormInputList}
           <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 ">Cancel</Button>
-            <Button className="bg-gray-400 hover:bg-gray-500 ">Submit</Button>
+            <Button className="bg-indigo-700 ">Submit</Button>
+            <Button
+              className="bg-gray-400 hover:bg-gray-500"
+              onClick={oncancel}
+            >
+              Cancel
+            </Button>
           </div>
         </form>
       </MyModal>

@@ -1,8 +1,8 @@
 import type { InputHTMLAttributes } from "react";
 
-interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
+// interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-const Input = ({ ...rest }: IProps) => {
+const Input = ({ ...rest }: InputHTMLAttributes<HTMLInputElement>) => {
   return (
     <input
       type="text"
