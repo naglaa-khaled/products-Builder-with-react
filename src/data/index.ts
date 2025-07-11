@@ -1,80 +1,109 @@
 import type { IProduct, IFormInput } from "../components/interfaces";
-
+import {v4 as uuid} from "uuid"
 
 export const ProductList: IProduct[] = [
   {
-    id: "1",
-    title: "Classic Comfort Cotton Tee",
+    id: uuid(),
+    title: "Velvet Charm Heeled Sandals",
     description:
-      "Slip into all-day comfort with our Classic Comfort Cotton Tee — a timeless staple made from 100% soft, breathable cotton. Whether you're lounging at home or heading out, this T-shirt delivers effortless style and durability with every wear.",
-    imgUrl:
-      "https://img.freepik.com/free-vector/duotone-grace-church-t-shirt-design_742173-5595.jpg?t=st=1751482674~exp=1751486274~hmac=a20f9e34c161c54fbf7dbe6857b55b6fc596170072f472e27e1e0e278bcb473c&w=1380",
+      "Stay active in style with breathable knit sneakers that blend fashion and function. Whether you're running errands or grabbing coffee, these shoes keep you comfortable all day long.",
+    imgUrl: "https://images.pexels.com/photos/26772104/pexels-photo-26772104.jpeg",
     price: "$900,000",
     colors: [],
     category: {
       name: "string",
       imgUrl:
-        "https://img.freepik.com/free-vector/duotone-grace-church-t-shirt-design_742173-5595.jpg?t=st=1751482674~exp=1751486274~hmac=a20f9e34c161c54fbf7dbe6857b55b6fc596170072f472e27e1e0e278bcb473c&w=1380",
+        "https://images.pexels.com/photos/26772104/pexels-photo-26772104.jpeg",
     },
   },
   {
-    id: "1",
-    title: "Graphic Vibes Streetwear Tee",
+    id: uuid(),
+    title: "Urban Breeze Knit Sneakers",
     description:
-      "Make a statement without saying a word. Our Graphic Vibes Tee features bold, eye-catching prints on premium fabric that holds color wash after wash. Perfect for streetwear lovers and creative souls who wear their style with pride.",
+      "Step into elegance with these velvet heels, crafted for nights that deserve a touch of luxury. With a graceful ankle strap and plush texture, they're your go-to for dinner dates or dressy occasions.",
     imgUrl:
-      "https://img.freepik.com/free-vector/monocolor-midnight-madness-marathon-t-shirt-design_742173-5733.jpg?t=st=1751481767~exp=1751485367~hmac=4b5d9c434bcbc57491a0a52d6ecfa27eacc023777642cace535fe7c981799f0d&w=1380",
+      "https://images.pexels.com/photos/26712439/pexels-photo-26712439.jpeg",
     price: "$700,000",
     colors: [],
     category: {
       name: "string",
       imgUrl:
-        "https://img.freepik.com/free-vector/monocolor-midnight-madness-marathon-t-shirt-design_742173-5733.jpg?t=st=1751481767~exp=1751485367~hmac=4b5d9c434bcbc57491a0a52d6ecfa27eacc023777642cace535fe7c981799f0d&w=1380",
+        "https://images.pexels.com/photos/26712439/pexels-photo-26712439.jpeg",
     },
   },
   {
-    id: "1",
-    title: "Minimalist Everyday T-Shirt",
+    id: uuid(),
+    title: "Classic Comfort Ballet Flats",
     description:
-      "Simple. Versatile. Essential. The Minimalist Everyday T-Shirt is designed to pair with anything in your wardrobe. Crafted with a tailored fit and smooth fabric, it's the go-to tee for clean, understated fashion.",
+      "A timeless essential. Soft, cushioned, and effortlessly versatile—perfect for the office, weekend strolls, or matching with casual dresses.",
     imgUrl:
-      "https://img.freepik.com/free-vector/simple-monocolor-run-sweat-repeat-marathon-t-shirt_742173-13127.jpg?t=st=1751482496~exp=1751486096~hmac=b766c1026d254d10f3f8a12a4e6baf9e744b5b99f83818745ccb3c0f5d5142ce&w=1380",
+      "https://images.pexels.com/photos/27113458/pexels-photo-27113458.jpeg",
     price: "$1000,000",
     colors: [],
     category: {
       name: "string",
       imgUrl:
-        "https://img.freepik.com/free-vector/simple-monocolor-run-sweat-repeat-marathon-t-shirt_742173-13127.jpg?t=st=1751482496~exp=1751486096~hmac=b766c1026d254d10f3f8a12a4e6baf9e744b5b99f83818745ccb3c0f5d5142ce&w=1380",
+        "https://images.pexels.com/photos/27113458/pexels-photo-27113458.jpeg",
     },
   },
   {
-    id: "1",
-    title: "Vintage Fade Retro Tee",
+    id: uuid(),
+    title: "Sunlit Stride Wedge Sandals",
     description:
-      "Step back in time with our Vintage Fade Retro Tee. Featuring a pre-washed, lived-in look and soft-touch feel, this shirt gives you that effortlessly cool, worn-for-years vibe from day one.",
+      "These light-as-air wedges add just the right lift for sunny afternoons. The woven design and cork sole bring boho vibes to your everyday look.",
     imgUrl:
-      "https://img.freepik.com/free-vector/maplewood-high-school-80s-tee_742173-33309.jpg?t=st=1751482571~exp=1751486171~hmac=0c327a662fb8c07f410850b77955b1173faeca533f1fd3da139a263f40e2ac9d&w=1380",
+      "https://images.pexels.com/photos/27100521/pexels-photo-27100521.jpeg",
     price: "$800,000",
     colors: [],
     category: {
       name: "string",
       imgUrl:
-        "https://img.freepik.com/free-vector/maplewood-high-school-80s-tee_742173-33309.jpg?t=st=1751482571~exp=1751486171~hmac=0c327a662fb8c07f410850b77955b1173faeca533f1fd3da139a263f40e2ac9d&w=1380",
+        "https://images.pexels.com/photos/27100521/pexels-photo-27100521.jpeg",
     },
   },
   {
-    id: "1",
-    title: "Bold & Funny Statement Tee",
+    id: uuid(),
+    title: "Trail Chic Ankle Boots",
     description:
-      "Turn heads and spark laughs with the Bold & Funny Statement Tee. Made for those who aren’t afraid to stand out, this shirt features witty quotes and bold text printed on ultra-soft fabric. Humor meets comfort — unapologetically.",
+      "Rugged meets refined. Designed for cooler weather, these ankle boots feature sturdy soles and sleek faux leather to elevate your autumn wardrobe.",
     imgUrl:
-      "https://img.freepik.com/free-vector/vintage-flat-eternal-light-church-t-shirt_742173-11977.jpg?t=st=1751482595~exp=1751486195~hmac=e3fc9e05e70d7e6128688e0c3462d28b3c74311a1ec4136db9f3828743976e73&w=1380",
-    price: "$600,000",
+      "https://images.pexels.com/photos/27658532/pexels-photo-27658532.jpeg",
+    price: "$1500,000",
     colors: [],
     category: {
       name: "string",
       imgUrl:
-        "https://img.freepik.com/free-vector/vintage-flat-eternal-light-church-t-shirt_742173-11977.jpg?t=st=1751482595~exp=1751486195~hmac=e3fc9e05e70d7e6128688e0c3462d28b3c74311a1ec4136db9f3828743976e73&w=1380",
+        "https://images.pexels.com/photos/27658532/pexels-photo-27658532.jpeg",
+    },
+  },
+  {
+    id: uuid(),
+    title: "Midnight Spark Pointed Pumps",
+    description:
+      "Make a statement after dark with these bold pointed pumps featuring a shimmering finish. Sophisticated and sharp, ideal for upscale events or parties.",
+    imgUrl:
+      "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
+    price: "$2000,000",
+    colors: [],
+    category: {
+      name: "string",
+      imgUrl:
+        "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
+    },
+  },
+  {
+    id: uuid(),
+    title: "Cloud Step Slip-On Trainers",
+    description:
+      "Your feet will thank you. These lightweight slip-ons are engineered with a soft inner lining and memory foam insoles—perfect for daily wear with a sporty twist.",
+    imgUrl:
+      "https://images.pexels.com/photos/26925257/pexels-photo-26925257.jpeg",
+    price: "$1200,000",
+    colors: [],
+    category: {
+      name: "string",
+      imgUrl:
+        "https://images.pexels.com/photos/26925257/pexels-photo-26925257.jpeg",
     },
   },
 ];
@@ -103,4 +132,23 @@ export const formInputList: IFormInput[] = [
     label: "product price",
     type: "text",
   },
+];
+export const Colors:string[] = [
+  "#78B9B5",
+  "#0F828C",
+  "#320A6B",
+  "#DC3C22",
+  "#EAC8A6",
+  "#FE7743",
+  "#0A400C",
+  "#D9A299",
+  "#819067",
+  "#BA487F",
+  "#FF9587",
+  "#A4DD00",
+  "#901E3E",
+  "#819A91",
+  // "#B33791",
+  // "#AEC8A4",
+  // "#ECFAE5",
 ];

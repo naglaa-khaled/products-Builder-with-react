@@ -1,5 +1,5 @@
 import ProductCard from "./components/productCard";
-import { ProductList, formInputList } from "./data";
+import { Colors, ProductList, formInputList } from "./data";
 import MyModal from "./components/ui/Model";
 import Input from "./components/ui/input";
 import { useState } from "react";
@@ -9,6 +9,8 @@ import Button from "./components/ui/Button";
 import type { IProduct } from "./components/interfaces";
 import { productValidation } from "./validation/index";
 import ErrorMessage from "./components/ErrorMessage";
+import CircleColor from "./components/CircleColor";
+import { v4 as uuid } from "uuid";
 
 const App = () => {
   const defaultproductObj = {
@@ -23,6 +25,7 @@ const App = () => {
     },
   };
   /*--------------------------state-------------------*/
+  const [products, setProducts] = useState<IProduct[]>(ProductList);
   const [product, setProduct] = useState<IProduct>(defaultproductObj);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +35,8 @@ const App = () => {
     imgUrl: "",
     price: "",
   });
+  const [tempColor, setTempColor] = useState<string[]>([]);
+  console.log(tempColor);
 
   /*--------------------------handler-------------------*/
 
@@ -53,7 +58,6 @@ const App = () => {
       [name]: "",
     });
   };
-  
 
   function submitHandelar(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
@@ -70,7 +74,13 @@ const App = () => {
       setErrors(error);
       return;
     }
-    console.log("has sent");
+    setProducts((prev) => [
+      { ...product, id: uuid(), colors: tempColor },
+      ...prev,
+    ]);
+    setProduct(defaultproductObj);
+    setTempColor([]);
+    close();
   }
   const oncancel = () => {
     console.log("cancel");
@@ -78,7 +88,7 @@ const App = () => {
     close();
   };
   /*--------------------------renders-------------------*/
-  const rendersProductList = ProductList.map((product) => (
+  const rendersProductList = products.map((product) => (
     <ProductCard key={product.id} product={product} />
   ));
   const renderFormInputList = formInputList.map((input) => (
@@ -91,26 +101,61 @@ const App = () => {
         value={product[input.name]}
         onChange={onChangeProduct}
       />
-      <ErrorMessage msg={ errors[input.name]} />
+      <ErrorMessage msg={errors[input.name]} />
     </div>
+  ));
+  const renderProductColors = Colors.map((color) => (
+    <CircleColor
+      key={color}
+      color={color}
+      onClick={() => {
+        if (tempColor.includes(color)) {
+          setTempColor((prev) => prev.filter((item) => item !== color));
+          return;
+        }
+        setTempColor((prev) => {
+          return [...prev, color];
+        });
+      }}
+    />
   ));
 
   return (
     <main className="container mx-auto">
-      <Button
-        className="bg-indigo-700 hover:bg-indigo-800 w-full"
-        onClick={open}
-      >
-        ADD
-      </Button>
+      <div className="flex justify-center mt-3 mb-3">
+        <button
+          className="bg-indigo-700 hover:bg-indigo-800 p-3 w-60 rounded-lg text-white cursor-pointer"
+          onClick={open}
+        >
+          Build Product
+        </button>
+      </div>
+
       <div className="m-5  rounded-md   grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-2 md:gap-4 p-2">
         {rendersProductList}
       </div>
       <MyModal isOpen={isOpen} close={close} title="EDIT PRODUCT">
         <form className="space-y-3" onSubmit={submitHandelar}>
           {renderFormInputList}
+          <div className="flex items-center space-x-1 flex-wrap ">
+            {renderProductColors}
+          </div>
+          <div className="flex items-center space-x-1 flex-wrap ">
+            {tempColor.map((color) => (
+              <span
+                key={color}
+                className="p-1 mr-1 mb-1 text-xs rounded-md text-white"
+                style={{ backgroundColor: color }}
+              >
+                {color}
+              </span>
+            ))}
+          </div>
+
           <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 ">Submit</Button>
+            <Button className="bg-indigo-700 hover:bg-indigo-800 ">
+              Submit
+            </Button>
             <Button
               className="bg-gray-400 hover:bg-gray-500"
               onClick={oncancel}
