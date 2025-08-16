@@ -1,4 +1,4 @@
-export interface IProduct{
+export interface IProduct {
   id?: string | undefined;
   title: string;
   description: string;
@@ -6,13 +6,19 @@ export interface IProduct{
   price: string;
   colors: string[];
   category: {
-    name: string,
-    imgUrl:string
-  }
+    
+    name: string;
+    imgUrl: string;
+  };
 }
 export interface IFormInput {
   id: string;
-  name: "title" | "description" | "imgUrl" |"price";
+  name: "title" | "description" | "imgUrl" | "price";
   label: string;
   type: string;
+}
+export interface ICatigory {
+  id: string;
+  name: string;
+  imgUrl: string;
 }

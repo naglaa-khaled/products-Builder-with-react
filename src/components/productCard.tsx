@@ -25,7 +25,7 @@ const productCard = ({ product }: IProps) => {
 <div className="w-full max-w-sm md:max-w-xl mx-auto border border-gray-400 rounded-md p-4 flex flex-col">
  
       <Image
-        classname="max-w-full  rounded-md h-72  lg:object-cover"
+        classname="max-w-full  rounded-md h-72  lg:object-cover "
         imageUrl={imgUrl}
         alt="product name"
       />
@@ -33,7 +33,7 @@ const productCard = ({ product }: IProps) => {
       <p className="text-sm text-gray-500 break-words">
         {txtSlicer(description)}
       </p>
-      <div className="flex items-center space-x-1 flex-wrap ">
+      <div className="flex items-center space-x-1 flex-wrap mt-3 ">
         {renderProductColors}
       </div>
 
@@ -42,7 +42,7 @@ const productCard = ({ product }: IProps) => {
         <Image
           classname=" w-10 h-10 rounded-full  object-center "
           imageUrl={category.imgUrl}
-          alt="product name"
+          alt={category.name}
         />
       </div>
 

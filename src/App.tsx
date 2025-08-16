@@ -1,16 +1,17 @@
 import ProductCard from "./components/productCard";
-import { Colors, ProductList, formInputList } from "./data";
+import { Colors, ProductList, catigories, formInputList } from "./data";
 import MyModal from "./components/ui/Model";
 import Input from "./components/ui/input";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import type { FormEvent } from "react";
 import Button from "./components/ui/Button";
-import type { IProduct } from "./components/interfaces";
+import type { IProduct, ICatigory } from "./components/interfaces";
 import { productValidation } from "./validation/index";
 import ErrorMessage from "./components/ErrorMessage";
 import CircleColor from "./components/CircleColor";
 import { v4 as uuid } from "uuid";
+import { Example } from "./components/ui/Select";
 
 const App = () => {
   const defaultproductObj = {
@@ -27,6 +28,9 @@ const App = () => {
   /*--------------------------state-------------------*/
   const [products, setProducts] = useState<IProduct[]>(ProductList);
   const [product, setProduct] = useState<IProduct>(defaultproductObj);
+  const [selectedCatigory, setSelectedCatigory] = useState<ICatigory>(
+    catigories[0]
+  );
 
   const [isOpen, setIsOpen] = useState(false);
   const [errors, setErrors] = useState({
@@ -75,7 +79,7 @@ const App = () => {
       return;
     }
     setProducts((prev) => [
-      { ...product, id: uuid(), colors: tempColor },
+      { ...product, id: uuid(), colors: tempColor, category: selectedCatigory },
       ...prev,
     ]);
     setProduct(defaultproductObj);
@@ -137,6 +141,11 @@ const App = () => {
       <MyModal isOpen={isOpen} close={close} title="EDIT PRODUCT">
         <form className="space-y-3" onSubmit={submitHandelar}>
           {renderFormInputList}
+          <Example
+            selected={selectedCatigory}
+            setSelected={setSelectedCatigory}
+          />
+
           <div className="flex items-center space-x-1 flex-wrap ">
             {renderProductColors}
           </div>
@@ -151,7 +160,6 @@ const App = () => {
               </span>
             ))}
           </div>
-
           <div className="flex items-center space-x-3">
             <Button className="bg-indigo-700 hover:bg-indigo-800 ">
               Submit

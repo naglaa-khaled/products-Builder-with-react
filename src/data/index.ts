@@ -1,5 +1,5 @@
-import type { IProduct, IFormInput } from "../components/interfaces";
-import {v4 as uuid} from "uuid"
+import type { IProduct, IFormInput, ICatigory } from "../components/interfaces";
+import { v4 as uuid } from "uuid";
 
 export const ProductList: IProduct[] = [
   {
@@ -7,9 +7,10 @@ export const ProductList: IProduct[] = [
     title: "Velvet Charm Heeled Sandals",
     description:
       "Stay active in style with breathable knit sneakers that blend fashion and function. Whether you're running errands or grabbing coffee, these shoes keep you comfortable all day long.",
-    imgUrl: "https://images.pexels.com/photos/26772104/pexels-photo-26772104.jpeg",
+    imgUrl:
+      "https://images.pexels.com/photos/26772104/pexels-photo-26772104.jpeg",
     price: "$900,000",
-    colors: [],
+    colors: ["#FF9587", "#A4DD00"],
     category: {
       name: "string",
       imgUrl:
@@ -24,7 +25,7 @@ export const ProductList: IProduct[] = [
     imgUrl:
       "https://images.pexels.com/photos/26712439/pexels-photo-26712439.jpeg",
     price: "$700,000",
-    colors: [],
+    colors: ["#BA487F", "#FF9587", "#A4DD00"],
     category: {
       name: "string",
       imgUrl:
@@ -39,7 +40,7 @@ export const ProductList: IProduct[] = [
     imgUrl:
       "https://images.pexels.com/photos/27113458/pexels-photo-27113458.jpeg",
     price: "$1000,000",
-    colors: [],
+    colors: ["#FE7743", "#0A400C", "#D9A299"],
     category: {
       name: "string",
       imgUrl:
@@ -54,7 +55,7 @@ export const ProductList: IProduct[] = [
     imgUrl:
       "https://images.pexels.com/photos/27100521/pexels-photo-27100521.jpeg",
     price: "$800,000",
-    colors: [],
+    colors: ["#819067", "#BA487F", "#FF9587", "#A4DD00"],
     category: {
       name: "string",
       imgUrl:
@@ -69,7 +70,7 @@ export const ProductList: IProduct[] = [
     imgUrl:
       "https://images.pexels.com/photos/27658532/pexels-photo-27658532.jpeg",
     price: "$1500,000",
-    colors: [],
+    colors: ["#DC3C22", "#EAC8A6", "#FE7743"],
     category: {
       name: "string",
       imgUrl:
@@ -84,7 +85,7 @@ export const ProductList: IProduct[] = [
     imgUrl:
       "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
     price: "$2000,000",
-    colors: [],
+    colors: ["#901E3E", "#819A91"],
     category: {
       name: "string",
       imgUrl:
@@ -99,7 +100,7 @@ export const ProductList: IProduct[] = [
     imgUrl:
       "https://images.pexels.com/photos/26925257/pexels-photo-26925257.jpeg",
     price: "$1200,000",
-    colors: [],
+    colors: ["#819067", "#BA487F", "#FF9587", "#A4DD00"],
     category: {
       name: "string",
       imgUrl:
@@ -133,7 +134,7 @@ export const formInputList: IFormInput[] = [
     type: "text",
   },
 ];
-export const Colors:string[] = [
+export const Colors: string[] = [
   "#78B9B5",
   "#0F828C",
   "#320A6B",
@@ -151,4 +152,25 @@ export const Colors:string[] = [
   // "#B33791",
   // "#AEC8A4",
   // "#ECFAE5",
+];
+export const catigories: ICatigory[] = [
+  {
+    id: "shoes",
+    name: "shoes",
+    imgUrl:
+      "https://images.pexels.com/photos/26712439/pexels-photo-26712439.jpeg",
+  },
+  {
+    id: "heels",
+    name: "Heels",
+    imgUrl:
+      "https://images.pexels.com/photos/26925257/pexels-photo-26925257.jpeg",
+  },
+  {
+    id: "sandel",
+    name: "Sandel",
+    imgUrl:
+      "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
+  },
+ 
 ];
