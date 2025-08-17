@@ -13,20 +13,21 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 import { catigories } from "../../data";
 import type { ICatigory } from "../interfaces";
 interface IProps {
-  selected: ICatigory;
+  selected: {name:string,imgUrl:string};
   setSelected: (catigory: ICatigory) => void;
 }
 
 
+
 export const Example = ({ selected, setSelected }: IProps) => {
-  const handleChange = (newValue: ICatigory) => {
-    if (newValue.id !== selected.id) {
-      setSelected(newValue);
-    }
-  };
+  // const handleChange = (newValue: ICatigory) => {
+  //   if (newValue.id !== selected.id) {
+  //     setSelected(newValue);
+  //   }
+  // };
 
   return (
-    <Listbox value={selected} onChange={handleChange} by="id">
+    <Listbox value={selected} onChange={setSelected} by="id">
       <Label className="block text-sm/6 font-medium text-gray-900">
         Catigory
       </Label>
@@ -57,11 +58,17 @@ export const Example = ({ selected, setSelected }: IProps) => {
               className="group relative cursor-default py-2 pr-9 pl-3 text-gray-900 select-none data-focus:bg-indigo-600 data-focus:text-white data-focus:outline-hidden"
             >
               <div className="flex items-center">
-                <img
+                {/* <img
                   alt=""
                   src={catigory.imgUrl}
                   className="size-5 shrink-0 rounded-full"
+                /> */}
+                <img
+                  alt={catigory.name}
+                  src={catigory.imgUrl || undefined} // ✅ لو فاضي مش هيرندر الصورة
+                  className="size-5 shrink-0 rounded-full"
                 />
+
                 <span className="ml-3 block truncate font-normal group-data-selected:font-semibold">
                   {catigory.name}
                 </span>

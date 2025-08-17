@@ -38,8 +38,13 @@ export const productValidation = (product: {
   if (!product.imgUrl.trim() || !validUrl) {
     errors.imgUrl="Valid image URL is required"
   };
-  if (!product.price.trim() || isNaN(Number(product.price))){
-    errors.price="Valid Price is required"
+  // if (!product.price.trim() || isNaN(Number(product.price))){
+  //   errors.price="Valid Price is required"
+  // }
+  if (!product.price.trim() || !/\d+/.test(product.price)) {
+    errors.price = "Valid Price is required";
   }
+
+
     return errors;
 };

@@ -12,7 +12,7 @@ export const ProductList: IProduct[] = [
     price: "$900,000",
     colors: ["#FF9587", "#A4DD00"],
     category: {
-      name: "string",
+      name: "sandels",
       imgUrl:
         "https://images.pexels.com/photos/26772104/pexels-photo-26772104.jpeg",
     },
@@ -27,7 +27,7 @@ export const ProductList: IProduct[] = [
     price: "$700,000",
     colors: ["#BA487F", "#FF9587", "#A4DD00"],
     category: {
-      name: "string",
+      name: "heels",
       imgUrl:
         "https://images.pexels.com/photos/26712439/pexels-photo-26712439.jpeg",
     },
@@ -42,7 +42,7 @@ export const ProductList: IProduct[] = [
     price: "$1000,000",
     colors: ["#FE7743", "#0A400C", "#D9A299"],
     category: {
-      name: "string",
+      name: "sniker",
       imgUrl:
         "https://images.pexels.com/photos/27113458/pexels-photo-27113458.jpeg",
     },
@@ -57,7 +57,7 @@ export const ProductList: IProduct[] = [
     price: "$800,000",
     colors: ["#819067", "#BA487F", "#FF9587", "#A4DD00"],
     category: {
-      name: "string",
+      name: "shoes",
       imgUrl:
         "https://images.pexels.com/photos/27100521/pexels-photo-27100521.jpeg",
     },
@@ -72,7 +72,7 @@ export const ProductList: IProduct[] = [
     price: "$1500,000",
     colors: ["#DC3C22", "#EAC8A6", "#FE7743"],
     category: {
-      name: "string",
+      name: "sniker",
       imgUrl:
         "https://images.pexels.com/photos/27658532/pexels-photo-27658532.jpeg",
     },
@@ -87,7 +87,7 @@ export const ProductList: IProduct[] = [
     price: "$2000,000",
     colors: ["#901E3E", "#819A91"],
     category: {
-      name: "string",
+      name: "sliper",
       imgUrl:
         "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
     },
@@ -102,7 +102,7 @@ export const ProductList: IProduct[] = [
     price: "$1200,000",
     colors: ["#819067", "#BA487F", "#FF9587", "#A4DD00"],
     category: {
-      name: "string",
+      name: "coatch",
       imgUrl:
         "https://images.pexels.com/photos/26925257/pexels-photo-26925257.jpeg",
     },
@@ -155,22 +155,27 @@ export const Colors: string[] = [
 ];
 export const catigories: ICatigory[] = [
   {
-    id: "shoes",
+    id: uuid(),
     name: "shoes",
     imgUrl:
       "https://images.pexels.com/photos/26712439/pexels-photo-26712439.jpeg",
   },
   {
-    id: "heels",
+    id: uuid(),
     name: "Heels",
     imgUrl:
       "https://images.pexels.com/photos/26925257/pexels-photo-26925257.jpeg",
   },
   {
-    id: "sandel",
+    id: uuid(),
     name: "Sandel",
     imgUrl:
       "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
   },
- 
+  {
+    id: uuid(),
+    name: "hhhhhhh",
+    imgUrl:
+      "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
+  },
 ];

@@ -5,25 +5,33 @@ import { txtSlicer } from "../utiles/function";
 import CircleColor from "./CircleColor";
 interface IProps {
   product: IProduct;
+  setProductToEdit: (product: IProduct) => void;
+  openEditModel: () => void;
+  setProductToEditIndex: (value: number) => void;
+  idx: number;
 }
 
 
-const productCard = ({ product }: IProps) => {
+const productCard = ({
+  product,
+  setProductToEdit,
+  openEditModel,
+  setProductToEditIndex,
+  idx
+}: IProps) => {
   const { title, description, imgUrl, price, colors, category } = product;
-
+  // Renders
   const renderProductColors = colors.map((color) => (
-    <CircleColor
-      key={color}
-      color={color}
-      onClick={() => {
-      
-      }}
-    />
+    <CircleColor key={color} color={color} onClick={() => {}} />
   ));
-
+  // Handler
+  const onEdit = () => {
+    setProductToEdit(product);
+    openEditModel();
+    setProductToEditIndex(idx);
+  };
   return (
-<div className="w-full max-w-sm md:max-w-xl mx-auto border border-gray-400 rounded-md p-4 flex flex-col">
- 
+    <div className="w-full max-w-sm md:max-w-xl mx-auto border border-gray-400 rounded-md p-4 flex flex-col">
       <Image
         classname="max-w-full  rounded-md h-72  lg:object-cover "
         imageUrl={imgUrl}
@@ -47,7 +55,11 @@ const productCard = ({ product }: IProps) => {
       </div>
 
       <div className="flex items-center justify-between space-x-2 mt-5">
-        <Button className="bg-indigo-700 hover:bg-indigo-800 " width="w-full">
+        <Button
+          className="bg-indigo-700 hover:bg-indigo-800 "
+          width="w-full"
+          onClick={onEdit}
+        >
           EDIT
         </Button>
         <Button
