@@ -151,12 +151,6 @@ const App = () => {
     setProductToEdit(defaultproductObj);
     setTempColor([]);
     closeEditModel();
-  }
-  const oncancel = () => {
-    console.log("cancel");
-    setProduct(defaultproductObj);
-    close();
-    closeEditModel();
     toast("Product has been Edit successfully!", {
       icon: "👏",
       style: {
@@ -164,6 +158,11 @@ const App = () => {
         color: "white",
       },
     });
+  }
+  const oncancel = () => {
+    
+    setProduct(defaultproductObj);
+    closeEditModel();
   };
 
   /*--------------------------renders-------------------*/
