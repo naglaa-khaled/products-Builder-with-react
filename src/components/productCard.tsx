@@ -9,6 +9,7 @@ interface IProps {
   openEditModel: () => void;
   setProductToEditIndex: (value: number) => void;
   idx: number;
+  openConfirmModal: () => void;
 }
 
 
@@ -17,7 +18,8 @@ const productCard = ({
   setProductToEdit,
   openEditModel,
   setProductToEditIndex,
-  idx
+  idx,
+  openConfirmModal
 }: IProps) => {
   const { title, description, imgUrl, price, colors, category } = product;
   // Renders
@@ -29,6 +31,10 @@ const productCard = ({
     setProductToEdit(product);
     openEditModel();
     setProductToEditIndex(idx);
+  };
+  const onRemove = () => {
+    setProductToEdit(product);
+    openConfirmModal();
   };
   return (
     <div className="w-full max-w-sm md:max-w-xl mx-auto border border-gray-400 rounded-md p-4 flex flex-col">
@@ -64,9 +70,7 @@ const productCard = ({
         </Button>
         <Button
           className="bg-red-700 hover:bg-red-800"
-          onClick={() => {
-            console.log("clicked");
-          }}
+          onClick={onRemove}
         >
           DELETE
         </Button>

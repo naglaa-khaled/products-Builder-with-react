@@ -172,10 +172,5 @@ export const catigories: ICatigory[] = [
     imgUrl:
       "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
   },
-  {
-    id: uuid(),
-    name: "hhhhhhh",
-    imgUrl:
-      "https://images.pexels.com/photos/27381284/pexels-photo-27381284.png",
-  },
+
 ];
