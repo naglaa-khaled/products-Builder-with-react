@@ -162,6 +162,7 @@ const App = () => {
   const oncancel = () => {
     
     setProduct(defaultproductObj);
+    close();
     closeEditModel();
   };
 
