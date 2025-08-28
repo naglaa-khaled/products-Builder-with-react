@@ -2,7 +2,7 @@ import ProductCard from "./components/productCard";
 import { Colors, ProductList, catigories, formInputList } from "./data";
 import MyModal from "./components/ui/Model";
 import Input from "./components/ui/input";
-import { useState } from "react";
+import {  useCallback, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { FormEvent } from "react";
 import Button from "./components/ui/Button";
@@ -60,15 +60,15 @@ const App = () => {
     setIsOpen(false);
   }
 
-  function openEditModel() {
+  const openEditModel= useCallback(() => {
     setOpenEditModel(true);
-  }
+  }, []);
 
   function closeEditModel() {
     setOpenEditModel(false);
   }
   const closeConfirmModal = () => setIsOpenConfirmModal(false);
-  const openConfirmModal = () => setIsOpenConfirmModal(true);
+  const openConfirmModal = useCallback(() => setIsOpenConfirmModal(true), []);
   const onChangeProduct = (event: ChangeEvent<HTMLInputElement>): void => {
     const { value, name } = event.target;
     setProduct((prevProduct) => ({
@@ -144,10 +144,7 @@ const App = () => {
       colors: tempColor.concat(productToEdit.colors),
     };
     setProducts(updateProducts);
-    // setProducts((prev) => [
-    //   { ...product, id: uuid(), colors: tempColor, category: selectedCatigory },
-    //   ...prev,
-    // ]);
+    
     setProductToEdit(defaultproductObj);
     setTempColor([]);
     closeEditModel();
@@ -159,6 +156,8 @@ const App = () => {
       },
     });
   }
+
+
   const oncancel = () => {
     
     setProduct(defaultproductObj);
