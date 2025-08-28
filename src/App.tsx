@@ -11,7 +11,7 @@ import { productValidation } from "./validation/index";
 import ErrorMessage from "./components/ErrorMessage";
 import CircleColor from "./components/CircleColor";
 import { v4 as uuid } from "uuid";
-import { Example } from "./components/ui/Select";
+import  Example  from "./components/ui/Select";
 import type { TproductName } from "./types";
 import toast, { Toaster } from "react-hot-toast";
 

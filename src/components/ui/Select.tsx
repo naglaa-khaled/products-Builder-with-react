@@ -11,12 +11,13 @@ import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { catigories } from "../../data";
 import type { ICatigory } from "../interfaces";
+import { memo } from "react";
 interface IProps {
   selected: { name: string; imgUrl: string };
   setSelected: (catigory: ICatigory) => void;
 }
 
-export const Example = ({ selected, setSelected }: IProps) => {
+const Example = ({ selected, setSelected }: IProps) => {
   
 
   return (
@@ -72,3 +73,4 @@ export const Example = ({ selected, setSelected }: IProps) => {
     </Listbox>
   );
 };
+export default memo(Example);

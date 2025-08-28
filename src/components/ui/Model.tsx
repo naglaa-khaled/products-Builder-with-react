@@ -4,7 +4,7 @@ import {
   DialogTitle,
   Transition,
 } from "@headlessui/react";
-import type { ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 import { Fragment } from "react";
 
 interface IProps {
@@ -67,4 +67,4 @@ const MyModal = ({ isOpen, close, title, children,description }: IProps) => {
   );
 };
 
-export default MyModal;
+export default memo(MyModal);
